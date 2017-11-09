@@ -94,8 +94,7 @@ try {
 
 
 
-			$sql = "INSERT INTO accounts (id, fname, lname, phone, birthday, password, email, gender)
-		    VALUES ($nextid, $userfname', '$userlname', '$userphone', '$userbirthday', '$userpass', '$useremail', '$usergender')";
+			$sql = "INSERT INTO accounts (id, email, fname, lname, phone, birthday, gender, password) VALUES ($nextid, '$useremail', '$userfname', '$userlname', '$userphone', '$userbirthday', '$usergender', '$userpass')";
 		    
 
 		    $conn->exec($sql);
