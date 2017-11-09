@@ -1,3 +1,34 @@
+
+<?php
+session_start();
+
+if($_SESSION['errorsent']== true)
+{
+
+	$_SESSION['errorsent']=false;
+}
+else
+{
+	$_SESSION['errorsession'] = "";
+	$_SESSION['errorsent']=false;
+	$_SESSION['email'] = "";
+	$_SESSION['password'] = "";
+	$_SESSION['fname'] = "";
+	$_SESSION['lname'] = "";
+	$_SESSION['phone'] = "";
+	$_SESSION['birthday'] = "";
+	$_SESSION['gender'] = "";
+
+}
+
+
+?>
+
+
+
+
+
+
 <!doctype html>
 <html>
 <head>
@@ -25,22 +56,31 @@
 
 				</br></br>
 
-				<form>
+				<form method="POST" action="verification.php">
 					<div class="inputs">
-						First Name: <input class="inputsignup" type="text" name="firstname"><br>
-						Last Name: <input class="inputsignup"  type="text" name="lastname"><br>
-						E-Mail: <input class="inputsignup"  type="text" name="email"><br>
-						Password: <input class="inputsignup"  type="text" name="password"><br>
-						Phone Number: <input class="inputsignup"  type="text" name="phone"><br>
-						Birthday(MM/DD/YYY): <input class="inputsignup"  type="text" name="birthday"><br>
+						First Name: <input class="inputsignup" type="text" name="fname" value="<?php echo $_SESSION['fname'];?>"><br>
+						Last Name: <input class="inputsignup"  type="text" name="lname" value="<?php echo $_SESSION['lname'];?>"><br>
+						E-Mail: <input class="inputsignup"  type="text" name="email" value="<?php echo $_SESSION['email'];?>"><br>
+						Password: <input class="inputsignup"  type="text" name="password" value="<?php echo $_SESSION['password'];?>"><br>
+						Phone Number: <input class="inputsignup"  type="text" name="phone" value="<?php echo $_SESSION['phone'];?>"><br>
+						Birthday(YYYY-MM-DD): <input class="inputsignup"  type="text" name="birthday" value="<?php echo $_SESSION['birthday'];?>"><br>
 						Gender: <input type="radio" name="gender" value="male" checked> Male <input type="radio" name="gender" value="female"> Female  <input type="radio" name="gender" value="other"> Other <br>
 					</div>
 
 
-					<button type="signup" class="button" onclick="buttonSignUp()">Sign Up</button>      <br><br><br>
+					<button type="signup" class="button">Sign Up</button>     
 
 
 				</form>
+				<br>
+				<form action="index.php">
+					<button type="signin" class="button">Log in Page</button>      <br><br><br>
+				</form>
+
+				<?php
+					echo $_SESSION['errorsession'];
+
+				?>
 
 
 

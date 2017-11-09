@@ -10,6 +10,7 @@ else
 {
 	$_SESSION['errorsession'] = "";
 	$_SESSION['errorsent']=false;
+	$_SESSION['email']="";
 
 }
 
@@ -50,18 +51,18 @@ else
 
 				<form method="POST" action="validation.php">
 					<div class="inputs">
-						E-Mail: <input class="inputsignup"  type="text" name="email" id="email"><br>
-						Password: <input class="inputsignup"  type="text" name="password" id="password"><br><br>
+						E-Mail: <input class="inputsignup"  type="text" name="email" id="email" value="<?php echo $_SESSION['email'];?>" ><br>
+						Password: <input class="inputsignup"  type="password" name="password" id="password"><br><br>
 					</div>
 
 
-					<button type="signup" class="button" onclick="buttonSignIn()">Sign In</button>      
+					<button type="signup" class="button">Sign In</button>      
 
 
 				</form>
 				<br>
 				<form action="signup.php">
-					<button type="signup" class="button" onclick="buttonSignUp()">Sign Up</button>      <br><br><br>
+					<button type="signup" class="button">Sign Up</button>      <br><br><br>
 				</form>
 
 				<?php
