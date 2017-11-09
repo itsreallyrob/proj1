@@ -1,29 +1,20 @@
 <?php
+session_start();
 
+if($_SESSION['errorsent']== true)
+{
 
-// $hostname = "sql2.njit.edu";
-// $username = "rjc43";
-// $password = "pxNGdj5c";
-// try {
-// 	    $conn = new PDO("mysql:host=$hostname;dbname=rjc43", $username, $password);
+	$_SESSION['errorsent']=false;
+}
+else
+{
+	$_SESSION['errorsession'] = "";
+	$_SESSION['errorsent']=false;
 
+}
 
-//     }
-// catch(PDOException $e)
-//     {
-//     	echo "Connection failed: " . $e->getMessage() + "</br>";
-//     }
-
-
-// $conn = null;
 
 ?>
-
-
-
-
-
-
 
 
 
@@ -57,10 +48,10 @@
 
 				</br></br>
 
-				<form action="welcome.php">
+				<form method="POST" action="validation.php">
 					<div class="inputs">
-						E-Mail: <input class="inputsignup"  type="text" name="email"><br>
-						Password: <input class="inputsignup"  type="text" name="password"><br><br>
+						E-Mail: <input class="inputsignup"  type="text" name="email" id="email"><br>
+						Password: <input class="inputsignup"  type="text" name="password" id="password"><br><br>
 					</div>
 
 
@@ -69,8 +60,14 @@
 
 				</form>
 				<br>
-
+				<form action="signup.php">
 					<button type="signup" class="button" onclick="buttonSignUp()">Sign Up</button>      <br><br><br>
+				</form>
+
+				<?php
+					echo $_SESSION['errorsession'];
+
+				?>
 
 			</div>
 		</div>
